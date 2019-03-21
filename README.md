@@ -2,6 +2,10 @@ ArakiNet
 ====
 FaceNet on RaspberryPi with MOVIDIUS
 
+[Semi junk code](https://github.com/araki2410/FaceRecToPi/tree/clean)
+
+This software is released under the MIT License, see LICENSE.
+
 ## Description
 <img src="https://github.com/araki2410/ArakiNet/blob/image/Img/facenet.jpg" width="400">
 <img src="https://github.com/araki2410/ArakiNet/blob/image/Img/facenet_lite.jpg" width="400">
@@ -28,6 +32,7 @@ FaceNet on RaspberryPi with MOVIDIUS
 
 ## Download
 Download installed raspbian image (Google Drive).
+
 [raspberrypi_FoRwM_20190315.img](https://drive.google.com/open?id=1kjbBEBuSHBUUthrUBRUh3aBCvGnQzqoX)
 
 ## Install (UNIX-like)
@@ -77,3 +82,4 @@ $ dd if=/home/araki/raspberrypi_FoRwM_20190315.img of=/dev/mmcsd0 bs=1m
 This is for 32 GB micro SD card.
 
 Use fdisk.
+
