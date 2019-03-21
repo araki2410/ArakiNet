@@ -32,6 +32,8 @@ Download installed raspbian image (Google Drive).
 
 ## Install (UNIX-like)
 #### MacOS
+[How to bake raspbian image on MacOS for jap](https://ledsun.hatenablog.com/entry/2014/10/26/174712)
+
 ```shell
 $ diskutil list
 /dev/disk0 (internal):
@@ -47,7 +49,31 @@ $ diskutil list
 $ diskutil unmountDisk /dev/disk2
 $ dd if=raspberrypi_FoRwM_20190315.img of=/dev/rdisk2 bs=1m
 ```
+Use fdisk.
 
-[How to bake raspbian image on MacOS for jap](https://ledsun.hatenablog.com/entry/2014/10/26/174712)
+#### FreeBSD
+[SDXCメモリカードをFAT32でフォーマットする](http://www.cory.jp/98/sd_fat32.html)
 
+Insertion and removal micro SD card
+```shell
+$ dmesg | tail 
+:
+.. mmcsd0 ...
 
+$ gpart show mmcsd0
+...MBR...
+...!12...
+
+$ gpart modify -i 1 -t \!12 mmcsd0
+mmcsd0s1 modified
+```
+
+Insertion and removal micro SD card
+
+```shell
+$ newfs_msdos -u 16 -L SDXC32GB /dev/mmcsd0s1
+$ dd if=/home/araki/raspberrypi_FoRwM_20190315.img of=/dev/mmcsd0 bs=1m
+```
+This is for 32 GB micro SD card.
+
+Use fdisk.
